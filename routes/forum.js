@@ -8,7 +8,7 @@ const auth = require("../config/auth")
 const { check, validationResult } = require('express-validator');
 
 
-router.get('/', function (req, res, next) {
+router.get('/', auth, function (req, res, next) {
     Forum.find({}, function (error, forumsArray) {
         if (error) {
             throw error;
